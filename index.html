@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>发展力 · 九大能力域，42 个心智模型</title>
+<meta name="description" content="《发展力》交互手册：学习力、思考力、创造力、设计力、共情力、故事力、领导力、整合力、结构化，42 个心智模型的用法、步骤、案例与常见误区。">
+<meta name="theme-color" content="#FBFAF7">
+<meta property="og:title" content="发展力 · 42 个心智模型交互手册">
+<meta property="og:description" content="把经验，变成可复用的能力。九大能力域，42 个模型，带自评雷达与检索。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23B23A2E'/%3E%3Ctext x='16' y='22' font-size='17' text-anchor='middle' fill='%23FBFAF7' font-family='serif'%3E发%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="site-head" id="siteHead">
+  <div class="head-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">发</span>
+      <span class="brand-text">发展力<em>Capability</em></span>
+    </a>
+    <nav class="head-nav" aria-label="主导航">
+      <a href="#radar" data-nav="radar">能力雷达</a>
+      <a href="#library" data-nav="library">模型库</a>
+      <a href="#paths" data-nav="paths">使用路径</a>
+      <a href="#roadmap" data-nav="roadmap">路线图</a>
+      <a href="roles/index.html">角色地图</a>
+    </nav>
+    <div class="head-tools">
+      <button class="tool-btn search-trigger" id="searchTrigger" aria-label="搜索模型">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5L18 18"/></svg>
+        <span>搜索模型</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <button class="tool-btn icon-btn" id="themeToggle" aria-label="切换主题" title="切换明暗主题">
+        <svg class="ico-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+        <svg class="ico-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 019.5 4a8.5 8.5 0 1010.5 10.5z"/></svg>
+      </button>
+      <button class="tool-btn icon-btn menu-btn" id="menuBtn" aria-label="打开导航" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#radar" data-nav="radar">能力雷达</a>
+    <a href="#library" data-nav="library">模型库</a>
+    <a href="#paths" data-nav="paths">使用路径</a>
+    <a href="#roadmap" data-nav="roadmap">路线图</a>
+    <a href="roles/index.html">角色地图</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="aurora a1"></div>
+      <div class="aurora a2"></div>
+      <div class="grid-lines"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow reveal"><span class="dot"></span>九大能力域 · 42 个心智模型 · 源自《发展力》</p>
+        <h1 class="reveal">
+          <span class="h1-line">把经验，</span>
+          <span class="h1-line accent">变成可复用的能力</span>
+        </h1>
+        <p class="lede reveal">
+          同样一件事，有人做完只剩疲惫，有人做完留下方法。<br>
+          这本手册把 42 个被反复验证的思维模型，拆成「是什么 · 怎么用 · 何时用 · 一个例子 · 常见坑」。
+        </p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary" href="#radar">
+            先做一次能力自评
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+          </a>
+          <button class="btn btn-ghost" id="randomBtn">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h4l4 10h6M3 15h4l2-5M15 3l2 2-2 2M15 13l2 2-2 2"/></svg>
+            随机抽一个模型
+          </button>
+        </div>
+        <dl class="hero-stats reveal">
+          <div><dt>9</dt><dd>能力域</dd></div>
+          <div><dt>42</dt><dd>心智模型</dd></div>
+          <div><dt>58</dt><dd>页原稿</dd></div>
+          <div><dt>20+</dt><dd>交互图示</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="orbit" id="orbit">
+          <div class="orbit-ring r1"></div>
+          <div class="orbit-ring r2"></div>
+          <div class="orbit-ring r3"></div>
+          <div class="orbit-core">
+            <span class="core-num" id="coreNum">9</span>
+            <span class="core-label">能力域</span>
+          </div>
+          <div class="orbit-dots" id="orbitDots"><!-- JS --></div>
+        </div>
+        <p class="orbit-hint">点击任意维度，直接进入该能力域</p>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#radar" aria-label="向下滚动">
+      <span>向下</span>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M5 11l5 5 5-5"/></svg>
+    </a>
+  </section>
+
+  <!-- ================= 能力雷达 ================= -->
+  <section class="section" id="radar">
+    <div class="section-head">
+      <div>
+        <p class="kicker"><span class="kicker-no">01</span>自评</p>
+        <h2>先看清自己站在哪里</h2>
+        <p class="section-desc">
+          九个维度各点一次，给出 0~5 的自评分。雷达会实时变化，右侧会告诉你
+          <strong>最该补的那一个</strong>——不是平均分最低的，而是"拖住其他维度"的那一个。
+        </p>
+      </div>
+      <div class="section-aside">
+        <div class="score-pill">
+          <span id="radarTotal">0.0</span><small>/ 5.0 平均</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="radar-layout">
+      <div class="radar-card">
+        <svg class="radar-svg" id="radarSvg" viewBox="0 0 420 420" role="img" aria-label="九维能力雷达图">
+          <!-- JS -->
+        </svg>
+        <div class="radar-legend">
+          <span><i class="lg-current"></i>你的现状</span>
+          <span><i class="lg-target"></i>建议目标</span>
+        </div>
+      </div>
+
+      <div class="score-panel">
+        <div class="panel-block" id="scoreRows"><!-- JS --></div>
+        <div class="insight" id="insight">
+          <div class="insight-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.2 5.6L20 10.8l-5.8 2.2L12 19l-2.2-6L4 10.8l5.8-2.2z"/></svg>
+            <span id="insightTitle">尚未自评</span>
+          </div>
+          <p id="insightText">点击左侧雷达的任一顶点，或下方的分值，开始自评。</p>
+        </div>
+        <div class="panel-actions">
+          <button class="btn btn-sm btn-ghost" id="radarReset">重置</button>
+          <button class="btn btn-sm btn-primary" id="radarFocus" disabled>看推荐模型</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 模型库 ================= -->
+  <section class="section section-library" id="library">
+    <div class="section-head">
+      <div>
+        <p class="kicker"><span class="kicker-no">02</span>模型库</p>
+        <h2>42 个模型，按你现在的问题找</h2>
+        <p class="section-desc">按能力域筛选，或直接搜索你的困境——比如「方案总被否」「会议开不完」「讲不清」。点击卡片看完整拆解。</p>
+      </div>
+      <div class="section-aside lib-count">
+        <span id="libCount">42</span><small>个结果</small>
+      </div>
+    </div>
+
+    <div class="lib-toolbar">
+      <div class="lib-search">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5L18 18"/></svg>
+        <input type="search" id="libSearch" placeholder="搜索模型、场景或关键词，如：留存 / 汇报 / 冲突" autocomplete="off" aria-label="搜索模型">
+        <button class="clear-btn" id="clearSearch" aria-label="清空搜索" hidden>×</button>
+      </div>
+      <div class="lib-actions">
+        <button class="chip-btn" id="favFilter" aria-pressed="false">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.6l2.3 4.7 5.2.8-3.8 3.7.9 5.2-4.6-2.4-4.6 2.4.9-5.2L2.5 8.1l5.2-.8z"/></svg>
+          只看收藏 <span class="fav-count" id="favCount">0</span>
+        </button>
+        <button class="chip-btn" id="doneFilter" aria-pressed="false">
+          只看已掌握 <span class="done-count" id="doneCount">0</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="dim-filter" id="dimFilter" role="tablist" aria-label="按能力域筛选"><!-- JS --></div>
+
+    <div class="model-grid" id="modelGrid"><!-- JS --></div>
+    <div class="empty-state" id="emptyState" hidden>
+      <p class="empty-glyph">◌</p>
+      <h3>没有找到匹配的模型</h3>
+      <p>换一个关键词，或者清空筛选条件试试。也可以按 <kbd>⌘K</kbd> 打开全局搜索。</p>
+      <button class="btn btn-sm btn-ghost" id="emptyReset">清空全部筛选</button>
+    </div>
+  </section>
+
+  <!-- ================= 使用路径 ================= -->
+  <section class="section" id="paths">
+    <div class="section-head">
+      <div>
+        <p class="kicker"><span class="kicker-no">03</span>怎么开始</p>
+        <h2>42 个模型不用都学，先选一条路</h2>
+        <p class="section-desc">方法论最大的陷阱是"收藏了等于会了"。按你当前的处境选一条，只走三个动作。</p>
+      </div>
+    </div>
+    <div class="path-grid" id="pathGrid"><!-- JS --></div>
+  </section>
+
+  <!-- ================= 路线图 ================= -->
+  <section class="section section-roadmap" id="roadmap">
+    <div class="section-head">
+      <div>
+        <p class="kicker"><span class="kicker-no">04</span>路线图</p>
+        <h2>从能力域，到角色地图</h2>
+        <p class="section-desc">
+          原稿的后半部分按角色组织（程序员 / 项目经理 / 技术经理 / 技术总监 / CTO），正文是占位内容。
+          现在每个角色都展开成了独立子页面：能力配比、关键转变、必会模型、高频场景与 90 天动作。
+        </p>
+      </div>
+      <div class="section-aside">
+        <a class="tag tag-soft" href="roles/index.html">5 个角色 · 打开角色地图 →</a>
+      </div>
+    </div>
+    <div class="roadmap-wrap">
+      <div class="roadmap-list" id="roadmapList"><!-- JS --></div>
+      <aside class="roadmap-note">
+        <h3>能力域与角色，是两把尺子</h3>
+        <p>角色地图会随组织变化，能力域不会。同一个模型在不同角色身上，用法不同但内核一致——先用能力域打底，再按角色裁剪。</p>
+        <div class="note-divider"></div>
+        <h3>角色页里有什么</h3>
+        <ul>
+          <li>这个角色真正被付费的三件事</li>
+          <li>九个能力维度的配比，以及 6 个必会模型</li>
+          <li>四个高频场景、四种卡住的模式</li>
+          <li>90 天动作 + 什么时候算准备好了</li>
+        </ul>
+        <p class="note-tip">五页可按顺序读，也可以只看你当前所在的那一级。</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= 说明 ================= -->
+  <section class="section section-about" id="about">
+    <div class="about-grid">
+      <div>
+        <p class="kicker"><span class="kicker-no">05</span>关于</p>
+        <h2>这份手册怎么来的</h2>
+        <p class="section-desc">
+          内容整理自内部《发展力》手册（58 页），保留原有九大能力域与模型清单；
+          每个模型补齐了定义、核心要点、使用步骤、案例与常见误区，并把关键模型做成了可交互图示。
+        </p>
+        <p class="section-desc">
+          原稿第 35 页之后的角色章节，只留下骨架，正文是其他章节的复制粘贴。
+          这里保留骨架重写了内容，并拆成五个独立子页面，放在 <a href="roles/index.html" style="color:var(--accent)">角色地图</a> 里。
+        </p>
+      </div>
+      <div class="about-meta">
+        <div class="meta-row"><span>能力域</span><strong>9</strong></div>
+        <div class="meta-row"><span>模型</span><strong>42</strong></div>
+        <div class="meta-row"><span>交互图示</span><strong>20+</strong></div>
+        <div class="meta-row"><span>依赖</span><strong>零依赖 · 纯静态</strong></div>
+        <div class="meta-row"><span>部署</span><strong>GitHub Pages</strong></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="brand-mark small">发</span>
+      <div>
+        <strong>发展力</strong>
+        <p>把经验，变成可复用的能力。</p>
+      </div>
+    </div>
+    <div class="foot-links">
+      <a href="#radar">能力雷达</a>
+      <a href="#library">模型库</a>
+      <a href="#roadmap">路线图</a>
+      <a href="https://github.com/" id="repoLink" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="foot-note">内容整理自内部《发展力》手册 · 本站为学习用途 · 自评与收藏数据仅保存在你的浏览器本地</p>
+  </div>
+</footer>
+
+<!-- ================= 详情抽屉 ================= -->
+<div class="drawer-scrim" id="drawerScrim" hidden></div>
+<aside class="drawer" id="drawer" tabindex="-1" aria-hidden="true" aria-labelledby="drawerTitle" role="dialog" aria-modal="true">
+  <div class="drawer-inner" id="drawerInner"><!-- JS --></div>
+</aside>
+
+<!-- ================= 全局搜索 ================= -->
+<div class="palette-scrim" id="paletteScrim" hidden></div>
+<div class="palette" id="palette" aria-hidden="true" role="dialog" aria-modal="true" aria-label="全局搜索">
+  <div class="palette-head">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5L18 18"/></svg>
+    <input type="text" id="paletteInput" placeholder="搜索 42 个模型…" autocomplete="off" aria-label="搜索">
+    <kbd>ESC</kbd>
+  </div>
+  <div class="palette-list" id="paletteList"><!-- JS --></div>
+  <div class="palette-foot">
+    <span><kbd>↑</kbd><kbd>↓</kbd> 选择</span>
+    <span><kbd>↵</kbd> 打开</span>
+    <span><kbd>ESC</kbd> 关闭</span>
+  </div>
+</div>
+
+<button class="to-top" id="toTop" aria-label="回到顶部" hidden>
+  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 16V4M5 9l5-5 5 5"/></svg>
+</button>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
