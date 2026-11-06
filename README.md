@@ -1,208 +1,129 @@
-# 发展力 · 九大能力域，42 个心智模型
+# 发展力 · 能力发展交互手册
 
-把《发展力》手册（58 页）整理成一个可交互的静态站点：能力自评雷达、可检索的模型库、20 多种可视化图示、收藏与掌握进度。
+> 把一本 58 页的能力模型手册，做成一个能自评、能检索、能按角色取用的静态站点。
 
-> 纯静态、零依赖、零构建 —— 直接丢到 GitHub Pages 就能用。
+![零依赖](https://img.shields.io/badge/dependencies-0-2ea44f)
+![零构建](https://img.shields.io/badge/build-none-blue)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-ready-2ea44f)
+![License](https://img.shields.io/badge/license-MIT-black)
+
+![首页](docs/preview.png)
 
 ---
 
-## 功能
+## 这是什么
+
+一本讲「能力发展」的手册，通常的命运是被读一遍、划几行线、然后忘掉。这个项目把它重做成一个可以反复回来的工具，而不是一次性的电子书：
+
+- **先量一下自己** —— 9 个能力维度打 0~5 分，雷达图实时变化，系统自己算出缺口最大的那一维，并指出从哪个模型开始补。
+- **再查具体怎么办** —— 42 个模型，每个都有「是什么 / 核心要点 / 怎么用 / 何时用 / 一个例子 / 常见误区」，配 26 种可视化图示，而不是纯文字段落。
+- **最后按角色取用** —— 程序员、项目经理、技术经理、技术总监、CTO 各有一个独立页面，回答「我现在这个位置，最该补哪三件事」。
+
+纯 HTML + CSS + JavaScript，没有框架、没有构建步骤、没有后端、不发任何网络请求。克隆下来双击 `index.html` 就能用。
+
+---
+
+## 功能一览
+
+### 主站
 
 | 模块 | 说明 |
 | --- | --- |
-| 能力雷达 | 9 个维度 0~5 分自评，雷达实时变化，自动找出「缺口最大」的维度并推荐入门模型 |
-| 模型库 | 42 个模型，支持关键词搜索、按能力域筛选、只看收藏 / 只看已掌握 |
-| 详情抽屉 | 每个模型包含：出处、一句话、是什么、核心要点、怎么用、何时用、一个例子、常见误区、标签 |
-| 可视化 | 学习金字塔、六顶思考帽、乔哈里视窗、冰山模型、AARRR 漏斗、峰终曲线、情境领导力矩阵、POA 公式、领导力阶梯等 20+ 种图示 |
-| 全局搜索 | `⌘K` / `Ctrl+K` 打开，↑↓ 选择，↵ 打开 |
-| 使用路径 | 新人 / 带团队 / 推一件事，三条各三个动作的入门路径 |
-| 角色地图 | 五个角色（程序员 → 项目经理 → 技术经理 → 技术总监 → CTO）各一个子页面：能力配比、关键转变、必会模型、高频场景、失败模式、90 天动作、跃迁信号；另有能力矩阵与能力轴总览 |
-| 本地数据 | 自评、收藏、已掌握全部存在浏览器 localStorage，不上传任何数据 |
-| 主题 | 明 / 暗主题，跟随系统并可手动切换 |
+| 能力自评雷达 | 9 个维度 0~5 分，点顶点或分值即可打分；实时计算平均分与缺口最大维度，并推荐该维度的入门模型 |
+| 模型库 | 42 张卡片，支持关键词搜索（按名称 / 场景 / 案例 / 误区加权排序）、按能力域筛选、只看收藏、只看已掌握 |
+| 详情抽屉 | 出处、一句话、图示、要点、用法、场景、案例、误区；`←` `→` 切换上一个 / 下一个模型 |
+| 全局搜索 | `Ctrl/Cmd + K` 或 `/` 唤起命令面板，键盘上下选择、回车打开 |
+| 可视化图示 | 26 种渲染器：条形、帕累托、循环、步骤、同心圆、时间轴、六顶帽、漏斗、曲线、雷达、乔哈里、冰山、AARRR、情境领导力、POA、阶梯等 |
+| 使用路径 | 新人 / 带团队 / 推一件事，三条各含三个动作的入门路径 |
+| 本地存档 | 自评、收藏、已掌握存在浏览器 `localStorage`（键名 `fzl.v1`），刷新与重开浏览器都在 |
+
+### 角色地图（`roles/`）
+
+| 页面 | 内容 |
+| --- | --- |
+| `roles/index.html` | 五级阶梯、9×5 能力矩阵热力表、五组能力轴（团队管理 / 业务理解 / 商业思维 / 个人成长 / 技术前瞻） |
+| 五个角色页 | 每个角色统一八段：被付费的交付物 → 九维能力配比 → 三次转变 → 必会模型 → 高频场景 → 失败模式 → 90 天动作 → 跃迁信号 |
+
+角色页里点模型卡会跳回主站并自动打开对应的详情抽屉，靠的是 `../index.html#m=<id>` 深链接。
 
 ---
 
-## 本地预览
+## 界面预览
 
-不需要任何依赖。任选一种：
+| 模型库 | 能力矩阵 |
+| --- | --- |
+| ![模型库](docs/library.png) | ![能力矩阵](docs/roles.png) |
+
+| 角色页 · 能力配比 |
+| --- |
+| ![角色页](docs/role-page.png) |
+
+---
+
+## 快速开始
+
+不需要安装任何依赖。
 
 ```bash
-# 方式一：Python
+# 任选一种本地服务器
 python -m http.server 8080
-
-# 方式二：Node
+# 或
 npx serve .
 ```
 
-然后打开 <http://localhost:8080>。
+打开 <http://localhost:8080> 即可。
 
-直接双击 `index.html` 也能看，但用本地服务器体验更完整（剪贴板等 API 在 `file://` 下受限）。
+直接双击 `index.html` 也能浏览，但建议用本地服务器：`file://` 协议下剪贴板 API 受限，「复制为 Markdown」会退化为 `execCommand` 方案。
 
----
+### 部署
 
-## 部署到 GitHub Pages
+仓库已按 GitHub Pages 的子路径场景做好准备：所有资源引用都是相对路径，且带 `.nojekyll`。Fork 或克隆后进入 **Settings → Pages**，Source 选 `Deploy from a branch`，分支 `main`、目录 `/ (root)`，保存即可。
 
-整个流程大约 10 分钟。下面按「推送前 → 推送 → 开启 Pages → 验证 → 后续更新」的顺序写。
+站点地址形如 `https://<用户名>.github.io/<仓库名>/`，大约 1 分钟生效。页脚的 GitHub 链接会自动指向当前仓库，无需手工改。
 
-### 0. 推送前先确认三件事
-
-```bash
-cd fazhanli
-ls .nojekyll                 # 必须存在（空文件即可），否则 Jekyll 会吞掉下划线开头的路径
-grep -rn 'href="/' --include=*.html .   # 不应该有输出：所有引用都是相对路径
-du -sh . --exclude=.git      # 约 330 KB，远低于 Pages 的 1 GB 限制
-```
-
-另外注意 Pages 的两个硬限制：单个文件 ≤ 100 MB，仓库 ≤ 1 GB。
-
-### 1. 在 GitHub 上建一个空仓库
-
-浏览器打开 <https://github.com/new>：
-
-- **Repository name**：`fazhanli`（这个名字会出现在网址里，之后改名会导致地址变化）
-- **Visibility**：Public 或 Private 都行（Pages 都支持，但站点本身对公网可见）
-- **不要**勾选 *Add a README file*、*Add .gitignore*、*Choose a license* —— 空仓库才不会和本地历史冲突
-- 点 **Create repository**
-
-建完后页面上会显示仓库地址，形如 `https://github.com/<用户名>/fazhanli.git`。
-
-### 2. 配置认证（最容易卡住的一步）
-
-GitHub 从 2021 年起**不再接受账号密码**做 Git 推送。任选一种方式：
-
-**方式 A：个人访问令牌（PAT，最通用）**
-
-1. 打开 <https://github.com/settings/tokens> → **Generate new token (classic)**
-2. Note 随便填（例如 `fazhanli-push`），Expiration 选 90 天
-3. 勾选 **`repo`** 这一个权限即可（私有仓库必需，公开仓库也需要）
-4. 生成后**立刻复制**令牌（`ghp_...`，只显示一次）
-5. 推送时，用户名填 GitHub 用户名，**密码处粘贴这个令牌**
-
-建议顺手把令牌交给凭据管理器保存，避免每次输入：
-
-```bash
-git config --global credential.helper manager   # Windows
-# macOS: git config --global credential.helper osxkeychain
-```
-
-**方式 B：用 GitHub Desktop / VS Code 登录**
-
-装上客户端并登录一次账号，命令行推送会复用它的凭据，不需要手动配置令牌。
-
-**方式 C：SSH 密钥**
-
-```bash
-ssh-keygen -t ed25519 -C "your@email.com"
-cat ~/.ssh/id_ed25519.pub    # 复制输出，粘贴到 https://github.com/settings/keys
-ssh -T git@github.com        # 出现 "Hi <用户名>!" 即成功
-```
-
-之后把下面的仓库地址换成 `git@github.com:<用户名>/fazhanli.git`。
-
-### 3. 推送代码
-
-```bash
-cd fazhanli
-git remote add origin https://github.com/<用户名>/fazhanli.git
-git branch -M main          # 本地当前分支是 master，统一改名为 main
-git push -u origin main
-```
-
-第一次推送会提示输入用户名和密码（密码处粘贴令牌）。成功的标志是输出里出现 `main -> main`，且 `git log --oneline` 的三个 commit 都在。
-
-### 4. 开启 Pages
-
-仓库页面 → **Settings** → 左侧 **Pages**：
-
-- **Source**：`Deploy from a branch`
-- **Branch**：`main`，目录选 `/ (root)`
-- 点 **Save**
-
-保存后页面顶部会出现一条提示，仓库的 **Actions** 标签里会出现一个叫 `pages build and deployment` 的工作流。等它变成绿色对勾（通常 30 秒到 2 分钟）。
-
-### 5. 验证
-
-访问：
-
-```
-https://<用户名>.github.io/fazhanli/
-```
-
-依次点开这几个地址，确认没有 404：
-
-| 地址 | 应该看到 |
-| --- | --- |
-| `/fazhanli/` | 主页，首屏有九维轨道图 |
-| `/fazhanli/roles/` | 角色地图总览，五级阶梯 |
-| `/fazhanli/roles/cto.html` | CTO 页面 |
-| `/fazhanli/index.html#m=systems-thinking` | 主页并自动打开「系统思维」详情 |
-
-再确认三件交互：搜索框 `⌘K` 能弹出、雷达打分后刷新还在、右上角主题切换生效。
-
-### 6. 后续更新
-
-```bash
-git add -A
-git commit -m "更新内容"
-git push
-```
-
-推送后 Pages 会自动重新构建，通常 1 分钟内生效。如果页面没变，先看 Actions 里最新一次运行是否成功，再强制刷新浏览器（`Ctrl/Cmd + Shift + R`）——Pages 的 CDN 有缓存。
-
-### 7. 常见问题
-
-| 现象 | 原因与处理 |
-| --- | --- |
-| 推送报 `Authentication failed` | 用了账号密码而非令牌。重新生成 PAT，或改用方式 B / C |
-| 推送报 `remote origin already exists` | 已有 remote，先 `git remote set-url origin <新地址>` |
-| 推送报 `failed to push some refs` | 远端非空（建仓库时勾了 README）。执行 `git pull --rebase origin main` 再推 |
-| Pages 设置里选不到 main 分支 | 分支还没推上去，或仓库是空的。先完成第 3 步并刷新页面 |
-| 打开是 404 | Settings → Pages 里确认分支和目录，并确认工作流已变绿；首次部署可能要等几分钟 |
-| 页面能开但没样式 | 大概率是绝对路径或 `.nojekyll` 缺失。本站已全用相对路径并带 `.nojekyll`，若改过 HTML 请复查第 0 步 |
-| 中文文件名 404 | Pages 对非 ASCII 路径处理不一致，本站文件名全为英文，新增页面请沿用 |
-| 想换域名 | Settings → Pages → Custom domain 填域名，并在域名商处加 CNAME 解析；仓库里会自动生成 `CNAME` 文件 |
-
-> 仓库里已包含 `.nojekyll`，避免 GitHub 的 Jekyll 处理影响静态资源。
-> 所有资源都是相对路径，所以部署在 `用户名.github.io/仓库名/` 这种子路径下也能正常工作，已用本地 `/fazhanli/` 子路径验证过。
+任何静态托管（Netlify、Vercel、Cloudflare Pages、对象存储）同样可以直接用，不需要构建命令，发布目录就是仓库根目录。
 
 ---
 
-## 目录结构
+## 项目结构
 
 ```
 .
-├── index.html              # 主站：能力雷达 / 模型库 / 路径 / 路线图
+├── index.html                 # 主站：雷达 / 模型库 / 路径 / 路线图
 ├── roles/
-│   ├── index.html          # 角色地图总览：五级阶梯 + 能力矩阵 + 能力轴
-│   ├── programmer.html     # 程序员
-│   ├── project-manager.html
-│   ├── tech-manager.html
-│   ├── tech-director.html
-│   └── cto.html
+│   ├── index.html             # 角色地图总览：阶梯 + 能力矩阵 + 能力轴
+│   ├── programmer.html        # 程序员
+│   ├── project-manager.html   # 项目经理
+│   ├── tech-manager.html      # 技术经理
+│   ├── tech-director.html     # 技术总监
+│   └── cto.html               # CTO
 ├── assets/
 │   ├── css/
-│   │   ├── style.css       # 主站样式：设计令牌、布局、组件、明暗主题
-│   │   └── roles.css       # 角色页样式（复用同一套令牌，独立加载）
+│   │   ├── style.css          # 设计令牌、布局、组件、明暗主题
+│   │   └── roles.css          # 角色页样式（复用同一套令牌，独立加载）
 │   └── js/
-│       ├── data.js         # 全部内容：9 个能力域、42 个模型、路径、路线图
-│       ├── app.js          # 主站交互：雷达、搜索、抽屉、图示、路由
-│       ├── roles-data.js   # 角色地图内容：5 个角色 + 5 组能力轴
-│       └── roles.js        # 角色页渲染：雷达、矩阵、展开项、主题
+│       ├── data.js            # 主站内容：9 个能力域、42 个模型、路径、路线图
+│       ├── app.js             # 主站交互：雷达、搜索、抽屉、26 种图示、路由
+│       ├── roles-data.js      # 角色内容：5 个角色 + 5 组能力轴
+│       └── roles.js           # 角色页渲染：雷达、矩阵、折叠项、主题
+├── docs/                      # README 用截图
 ├── .nojekyll
 └── README.md
 ```
+
+全部代码与样式约 330 KB、5 000 行；`docs/` 里是 README 用的截图（约 780 KB，可安全删除，不影响站点运行）。没有 `node_modules`，也不需要打包产物。
 
 ---
 
 ## 怎么改内容
 
-所有文案都在 `assets/js/data.js`，不需要动其他文件。
+所有文案集中在两个数据文件里，改内容不需要碰渲染逻辑。
 
-### 新增一个模型
+### 新增一个模型（`assets/js/data.js`）
 
 ```js
 {
-  id: 'my-model',            // 唯一 id，同时用于分享链接 #m=my-model
+  id: 'my-model',            // 唯一 id，同时用于深链接 #m=my-model
   dim: 'learn',              // 能力域 id：learn / think / create / design /
                              // empathy / story / lead / integrate / struct
   name: '模型名称',
@@ -210,15 +131,13 @@ git push
   origin: '提出者，年份',
   tagline: '一句话说清它解决什么问题',
   def: '这个模型是什么，2~3 句。',
-  points: [
-    ['要点标题', '要点解释']
-  ],
-  steps: ['第一步', '第二步'],   // 可留空数组
+  points: [['要点标题', '要点解释']],
+  steps: ['第一步', '第二步'],          // 可为空数组
   when: '什么场景下用。',
   example: ['案例标题', '案例正文'],
   pitfalls: ['常见误区一'],
   tags: ['标签'],
-  viz: { type: 'steps', data: [{ t: '标题', d: '说明' }] }  // 可省略
+  viz: { type: 'steps', data: [{ t: '标题', d: '说明' }] }   // 可省略
 }
 ```
 
@@ -229,20 +148,20 @@ git push
 `story5` · `ladder` · `staircase` · `acts` · `situational` · `lever` ·
 `poa` · `nodes` · `merge` · `pyramid3` · `mece` · `compare`
 
-各自的数据格式见 `app.js` 里 `vizOf()` 的对应分支。
+各类型的数据格式见 `assets/js/app.js` 中 `vizOf()` 的对应分支；新增一种渲染器只需在那里加一个 `case`。
 
 ### 改能力域
 
-`DIMENSIONS` 数组：`id`、`no`（一/二/…）、`name`、`en`、`color`（同时决定主题色）、`claim`、`desc`、`question`。
+`data.js` 的 `DIMENSIONS`：`id`、`no`（一 / 二 / …）、`name`、`en`、`color`（同时决定主题强调色）、`claim`、`desc`、`question`。
 
-### 改角色地图
+> 增删能力域会同时影响雷达轴数、矩阵行数与角色页配比，三者都从 `DIMENSIONS` 派生，改一处即可。
 
-内容在 `assets/js/roles-data.js`：
+### 改角色地图（`assets/js/roles-data.js`）
 
-- `ROLES` —— 每个角色一个对象，字段为 `question`（核心问题）、`deliver`（被付费的三件事）、`dims`（九个维度 0~5 的配比）、`shifts`（关键转变）、`models`（模型 id + 为什么选它）、`scenes`（高频场景）、`fails`（卡点）、`plan`（90 天）、`signals`（跃迁信号）。
+- `ROLES` —— 每个角色一个对象：`question`（核心问题）、`deliver`（被付费的三件事）、`dims`（九维 0~5 配比）、`shifts`（关键转变）、`models`（模型 id + 选择理由）、`scenes`（高频场景）、`fails`（卡点）、`plan`（90 天）、`signals`（跃迁信号）。
 - `CAPS` —— 按能力轴组织的五组模型。
-- `models[].id` 必须是 `data.js` 中 `MODELS` 里存在的 id，页面会自动取名称与所属能力域，并生成跳回主站的深链接。
-- 新增一个角色：在 `ROLES` 里加一项，再复制任意 `roles/*.html` 改 `data-role` 即可，页面结构会自动生成。
+- `models[].id` 必须是 `data.js` 中 `MODELS` 里存在的 id，页面会自动取名称、所属能力域，并生成跳回主站的深链接。
+- 新增一个角色：在 `ROLES` 里加一项，复制任意 `roles/*.html` 改掉 `data-role` 即可，页面结构自动生成。
 
 ---
 
@@ -250,19 +169,59 @@ git push
 
 | 键 | 作用 |
 | --- | --- |
-| `⌘K` / `Ctrl+K` / `/` | 打开全局搜索 |
+| `Ctrl/Cmd + K`、`/` | 打开全局搜索 |
 | `↑` `↓` | 在搜索结果中移动 |
-| `↵` | 打开选中的模型 |
+| `Enter` | 打开选中的模型 |
 | `←` `→` | 在详情里切换上一个 / 下一个模型 |
 | `Esc` | 关闭搜索或详情 |
 
 ---
 
-## 内容来源与说明
+## 技术说明
 
-- 内容整理自内部《发展力》手册（58 页），保留原有九大能力域与模型清单。
-- 每个模型的定义、要点、步骤、案例、误区为在原稿基础上的补充整理，用于内部学习。
-- 原稿第 35 页之后的角色章节只留下骨架（五个角色、每组五个模型位），且每个模型位下的正文是其他章节的复制粘贴。本站保留骨架与顺序，按「交付物 → 能力配比 → 转变 → 模型 → 场景 → 卡点 → 90 天 → 信号」重写了正文，并拆成独立子页面；角色下挂的模型是从前 34 页的 42 个模型里按相关性重选的，不是照搬原稿的模型位。
-- 原稿标注「待补充」的结构化能力域，本站补齐了金字塔原理、MECE、演绎与归纳三个工具。
+- **无依赖**：不用框架、不用打包器、不引 CDN，脚本以普通 `<script>` 顺序加载。
+- **样式**：CSS 自定义属性做设计令牌，明暗主题共用一套变量；`prefers-color-scheme` 决定初始主题，手动切换后写入 `localStorage` 并在所有页面间共享。
+- **图示**：全部为手写内联 SVG 或 CSS 布局，随容器宽度缩放，不依赖图表库。
+- **无障碍**：对话框语义（`role="dialog"`、`aria-modal`、`aria-hidden`）、焦点在抽屉打开时移入、`aria-live` 播报搜索与复制结果、`prefers-reduced-motion` 下关闭进场动画、可键盘操作全部交互。
+- **隐私**：无统计、无 Cookie、无第三方请求；所有个人数据（自评、收藏、进度）只留在本机 `localStorage`，清除浏览器数据即恢复初始状态。
+- **兼容性**：使用了 `color-mix()`，需要 Chrome / Edge 111+、Safari 16.2+、Firefox 113+（即 2023 年以后的浏览器版本）。低版本下颜色混合会失效但不影响内容阅读。
 
-如果这份内容要对外发布，请先确认原稿的授权范围。
+---
+
+## 内容说明
+
+- 模型体系与九大能力域整理自《发展力》能力模型手册（58 页）。原稿的模型清单与顺序被保留，模型条目下的定义、要点、步骤、案例与误区为在原稿基础上的补充整理。
+- 原稿第 35 页之后的角色章节只留下骨架（五个角色、每组五个模型位），且各模型位下的正文与其他章节重复。本项目保留骨架与结构，按「交付物 → 能力配比 → 转变 → 模型 → 场景 → 卡点 → 90 天 → 信号」重写正文并拆为独立页面；角色下挂的模型是从前 42 个模型中按相关性重选的，并非照搬原稿的模型位。
+- 原稿标注「待补充」的结构化能力域，补齐了金字塔原理、MECE、演绎与归纳三个工具。
+- 书中模型（如六顶思考帽、乔哈里视窗、AARRR、POA 等）的知识产权归各自提出者所有。
+
+---
+
+## 已知限制
+
+- 没有后端，数据不跨设备同步；换浏览器或清除缓存即丢失。
+- 不支持导出为 PDF 或整册离线文档，打印样式未专门优化。
+- 角色页只覆盖五个技术管理岗位，其他职能尚未展开。
+
+## 路线图
+
+- [ ] 自评结果导出为图片 / JSON，便于团队汇总
+- [ ] 团队视图：把多人自评叠加成一张对比雷达
+- [ ] 模型间的「相关模型」跳转与学习路径串联
+- [ ] 打印与 PDF 输出样式
+- [ ] 英文界面
+
+## 贡献
+
+欢迎提 Issue 与 PR。几个约定：
+
+- 内容改动只改 `assets/js/data.js` 与 `assets/js/roles-data.js`，不要动渲染层。
+- 保持零依赖、零构建；不要引入 npm 包、CDN 或构建脚本。
+- 新增页面沿用英文文件名，避免非 ASCII 路径在静态托管上出问题。
+- 提交前在 360 px 与 1440 px 两个宽度下各看一遍，确认没有横向溢出。
+
+## 许可
+
+代码以 MIT 许可证发布，见 [LICENSE](LICENSE)。
+
+`assets/js/data.js`、`assets/js/roles-data.js` 中的文字内容属内容整理范畴，不在 MIT 授权范围内，如需转载或商用请自行确认原稿权利人的许可。
